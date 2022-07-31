@@ -144,4 +144,118 @@ const bills = [125, 555, 44];
 const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
 console.log(bills, tips);
 
+
+const jonas = {
+    firstName: 'Jonas',
+    lastName: 'Schmedtmann',
+    age: 2038 - 1991,
+    job: 'teacher',
+    friends: ['Michelle', 'Peter', 'Steven']
+};
+console.log(jonas);
+console.log(jonas.lastName);
+console.log(jonas['lastName']);
+
+const nameKey = 'Name';
+console.log(jonas['first' + nameKey]);
+console.log(jonas['last' + nameKey]);
+
+const interestedIn = prompt('What do you want to know about Jonas? Choose between firstName, lastName, age, job and friends');
+
+if (jonas[interestedIn]) {
+    console.log(jonas[interestedIn]);
+} else {
+    console.log('Wrong request!  Choose between firstName, lastName, age, job and friends');
+}
+
+jonas.location = 'Protugal';
+jonas['twitter'] = '@jasdfgrewa';
+console.log(jonas);
+
+const jonas = {
+    firstName: 'Jonas',
+    lastName: 'Schmedtmann',
+    job: 'teacher',
+    friends: ['Michelle', 'Peter', 'Steven'],
+    birthYear: 1991,
+
+    // calcAge: function () {
+    //     return 2037 - this.birthYear;
+    // }
+
+    calcAge: function () {
+        this.age = 2037 - this.birthYear;
+        return this.age;
+    },
+
+    getSunnary: function () {
+        return `${this.firstName} is a ${this.calcAge()}-year old ${this.job}, and he hs a driver's livense`;
+    }
+};
+
+console.log(jonas.calcAge());
+console.log(jonas.age);
+
+console.log(jonas.getSunnary());
+
+const jonas = [
+    'Jonas',
+    'Schmedtmann',
+    2038 - 1991,
+    'teacher',
+    ['Michelle', 'Peter', 'Steven']
+];
+
+for (let i = 0; i < jonas.length; i++) {
+    console.log(jonas[i], typeof jonas[i]);
+}
+
+const years = [1969, 1898, 2004, 2020];
+const ages = [];
+
+for (let i = 0; i < years.length; i++) {
+    ages[i] = 2037 - years[i];
+}
+console.log(ages);
+
+// continue and break
+for (let i = 0; i < jonas.length; i++) {
+    if (typeof jonas[i] === 'string') continue;
+    console.log(jonas[i]);
+}
+
+for (let i = 0; i < jonas.length; i++) {
+    if (typeof jonas[i] === 'number') break;
+    console.log(jonas[i]);
+}
+
+// let rep = 1;
+// while (rep <= 10) {
+//     console.log(`rep = ${rep}`);
+//     rep++;
+// }
+
+let rep = 1;
+while (rep != 6) {
+    rep = Math.trunc(Math.random() * 6);
+    console.log(rep);
+}
 */
+
+const calcTip = bill => bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+const tips = [];
+const totals = [];
+let sum = 0;
+for (let l = 0; l < bills.length; l++) {
+    const tip = calcTip(bills[l]);
+    tips.push(tip);
+    totals.push(tip + bills[l]);
+    sum += tip + bills[l];
+    if (l == bills.length - 1)
+        sum = sum / bills.length;
+}
+
+console.log(sum);
+

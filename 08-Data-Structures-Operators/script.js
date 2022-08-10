@@ -30,16 +30,54 @@ const restaurant = {
   orderDelivery: function ({ starterIndex, mainIndex, time, address }) {
     console.log(starterIndex, mainIndex, time, address);
   },
+
+  orderPasta: function (ing1, ing2) {
+    console.log(`your pasta with ${ing1}, ${ing2}`);
+  },
 };
 
-restaurant.orderDelivery({
-  time: '22.30',
-  address: 'via del sole',
-  mainIndex: 2,
-  starterIndex: 2,
-});
+// Spread Operator
+const arr = [2, 5, 1];
+const badNewArr = [0, 9, arr[0], arr[1], arr[2]];
+console.log(badNewArr);
 
-// Destructuring Objects
+const newArr = [0, 9, ...arr];
+console.log(newArr);
+console.log(...newArr);
+
+const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+console.log(newMenu);
+
+const mainMenuCopy = [...restaurant.mainMenu];
+
+const mune = [...restaurant.mainMenu, ...restaurant.starterMenu];
+console.log(mune);
+2;
+
+const ingredients = [
+  // prompt(`Let mask pasta! Ingresients 1`),
+  // prompt(`Let mask pasta! ingredient 2?`),
+];
+console.log(ingredients);
+
+restaurant.orderPasta(...ingredients);
+
+const newRestaurant = { foundedIn: 1998, ...restaurant, founder: 'Guiseppe' };
+console.log(newRestaurant);
+
+const restaurantCopy = { ...restaurant };
+restaurantCopy.name = 'Ristorante Roma';
+console.log(restaurantCopy.name);
+console.log(restaurant.name);
+
+// // Destructuring Objects
+// restaurant.orderDelivery({
+//   time: '22.30',
+//   address: 'via del sole',
+//   mainIndex: 2,
+//   starterIndex: 2,
+// })
+
 // const { name, openingHours, categories } = restaurant;
 // console.log(name, openingHours, categories);
 

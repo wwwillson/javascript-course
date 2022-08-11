@@ -34,41 +34,60 @@ const restaurant = {
   orderPasta: function (ing1, ing2) {
     console.log(`your pasta with ${ing1}, ${ing2}`);
   },
+
+  orderPizza: function (mainIngredient, ...otherIngerdients) {
+    console.log(mainIngredient);
+    console.log(otherIngerdients);
+  },
 };
 
-// Spread Operator
-const arr = [2, 5, 1];
-const badNewArr = [0, 9, arr[0], arr[1], arr[2]];
-console.log(badNewArr);
+// spread and rest
+const arr = [1, 2, ...[3, 4]];
+console.log(arr);
 
-const newArr = [0, 9, ...arr];
-console.log(newArr);
-console.log(...newArr);
+const [a, b, ...other] = [1, 2, 3, 4, 5];
+console.log(a, b, other);
 
-const newMenu = [...restaurant.mainMenu, 'Gnocci'];
-console.log(newMenu);
-
-const mainMenuCopy = [...restaurant.mainMenu];
-
-const mune = [...restaurant.mainMenu, ...restaurant.starterMenu];
-console.log(mune);
-2;
-
-const ingredients = [
-  // prompt(`Let mask pasta! Ingresients 1`),
-  // prompt(`Let mask pasta! ingredient 2?`),
+const [pizza, , risotto, ...otherfood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
 ];
-console.log(ingredients);
+console.log(pizza, risotto, otherfood);
 
-restaurant.orderPasta(...ingredients);
+restaurant.orderPizza('mushrooms', 'onion', 'olives');
+// Spread Operator
+// const arr = [2, 5, 1];
+// const badNewArr = [0, 9, arr[0], arr[1], arr[2]];
+// console.log(badNewArr);
 
-const newRestaurant = { foundedIn: 1998, ...restaurant, founder: 'Guiseppe' };
-console.log(newRestaurant);
+// const newArr = [0, 9, ...arr];
+// console.log(newArr);
+// console.log(...newArr);
 
-const restaurantCopy = { ...restaurant };
-restaurantCopy.name = 'Ristorante Roma';
-console.log(restaurantCopy.name);
-console.log(restaurant.name);
+// const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+// console.log(newMenu);
+
+// const mainMenuCopy = [...restaurant.mainMenu];
+
+// const mune = [...restaurant.mainMenu, ...restaurant.starterMenu];
+// console.log(mune);
+// 2;
+
+// const ingredients = [
+//   // prompt(`Let mask pasta! Ingresients 1`),
+//   // prompt(`Let mask pasta! ingredient 2?`),
+// ];
+// console.log(ingredients);
+
+// restaurant.orderPasta(...ingredients);
+
+// const newRestaurant = { foundedIn: 1998, ...restaurant, founder: 'Guiseppe' };
+// console.log(newRestaurant);
+
+// const restaurantCopy = { ...restaurant };
+// restaurantCopy.name = 'Ristorante Roma';
+// console.log(restaurantCopy.name);
+// console.log(restaurant.name);
 
 // // Destructuring Objects
 // restaurant.orderDelivery({

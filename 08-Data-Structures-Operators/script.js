@@ -41,20 +41,32 @@ const restaurant = {
   },
 };
 
+// short-circuiting
+console.log(3 || 'Jonas');
+console.log('' || 'Jonas');
+console.log(true || 0);
+console.log(undefined || null);
+console.log(undefined || 0 || '' || 'hello' || 23 || null);
+
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('mushrooms', 'spinach');
+}
+
+restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
 // spread and rest
-const arr = [1, 2, ...[3, 4]];
-console.log(arr);
+// const arr = [1, 2, ...[3, 4]];
+// console.log(arr);
 
-const [a, b, ...other] = [1, 2, 3, 4, 5];
-console.log(a, b, other);
+// const [a, b, ...other] = [1, 2, 3, 4, 5];
+// console.log(a, b, other);
 
-const [pizza, , risotto, ...otherfood] = [
-  ...restaurant.mainMenu,
-  ...restaurant.starterMenu,
-];
-console.log(pizza, risotto, otherfood);
+// const [pizza, , risotto, ...otherfood] = [
+//   ...restaurant.mainMenu,
+//   ...restaurant.starterMenu,
+// ];
+// console.log(pizza, risotto, otherfood);
 
-restaurant.orderPizza('mushrooms', 'onion', 'olives');
+// restaurant.orderPizza('mushrooms', 'onion', 'olives');
 // Spread Operator
 // const arr = [2, 5, 1];
 // const badNewArr = [0, 9, arr[0], arr[1], arr[2]];

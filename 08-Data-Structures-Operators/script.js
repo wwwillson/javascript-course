@@ -41,18 +41,45 @@ const restaurant = {
   },
 };
 
+// assignment operator
+const rest1 = {
+  name: 'Capri',
+  // numGuests: '20',
+  numGuests: 0,
+};
+const rest2 = {
+  name: 'La Pizza',
+  owner: 'Giovanni Rossi',
+};
+
+// rest1.numGuests = rest1.numGuests || 10;
+// rest2.numGuests = rest2.numGuests || 10;
+// rest1.numGuests ||= 10;
+// rest2.numGuests ||= 10;
+
+rest1.numGuests ??= 10;
+rest2.numGuests ??= 10;
+
+// rest1.owner = rest1.owner && '<ANONYMOUS0';
+// rest2.owner = rest2.owner && '<ANONYMOUS0';
+rest1.owner &&= '<ANONYMOUS0';
+rest2.owner &&= '<ANONYMOUS0';
+
+console.log(rest1);
+console.log(rest2);
 // short-circuiting
-console.log(3 || 'Jonas');
-console.log('' || 'Jonas');
-console.log(true || 0);
-console.log(undefined || null);
-console.log(undefined || 0 || '' || 'hello' || 23 || null);
+// console.log(3 || 'Jonas');
+// console.log('' || 'Jonas');
+// console.log(true || 0);
+// console.log(undefined || null);
+// console.log(undefined || 0 || '' || 'hello' || 23 || null);
 
-if (restaurant.orderPizza) {
-  restaurant.orderPizza('mushrooms', 'spinach');
-}
+// if (restaurant.orderPizza) {
+//   restaurant.orderPizza('mushrooms', 'spinach');
+// }
 
-restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
+// restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
+
 // spread and rest
 // const arr = [1, 2, ...[3, 4]];
 // console.log(arr);

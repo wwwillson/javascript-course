@@ -48,28 +48,48 @@ const restaurant = {
   },
 };
 
-if (restaurant.openingHours && restaurant.openingHours.mon)
-  console.log(restaurant.openingHours.mon.open);
+// property names
+const properties = Object.keys(openingHours);
+console.log(properties);
 
-// with optional chaining
-console.log(restaurant.openingHours.mon?.open);
-console.log(restaurant.openingHours?.sun?.open);
-
-// Example
-const days = ['mon', 'tue', 'wed', 'the', 'fri', 'sat', 'sun'];
-
-for (const day of days) {
-  const open = restaurant.openingHours[day]?.open ?? 'closed';
-  console.log(`On ${day},we open at ${open}`);
+let openStr = `We are open on ${properties.length} days:`;
+for (const day of properties) {
+  openStr += `${day} ,`;
 }
+console.log(openStr);
 
-// Methods
-console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
-console.log(restaurant.orderRisotto?.(0, 1) ?? 'Method does not exist');
+// property values
+const values = Object.values(openingHours);
+console.log(values);
 
-// Arrays
-const users = [{ name: 'Jonas', email: 'hello@jonas.io' }];
-console.log(users[0]?.name ?? 'User aray empty');
+// Entire object
+const entries = Object.entries(openingHours);
+for (const [key, { open, close }] of entries) {
+  console.log(`On ${key} we open at ${open} and close at ${close}`);
+}
+// if (restaurant.openingHours && restaurant.openingHours.mon)
+//   console.log(restaurant.openingHours.mon.open);
+
+// // with optional chaining
+// console.log(restaurant.openingHours.mon?.open);
+// console.log(restaurant.openingHours?.sun?.open);
+
+// // Example
+// const days = ['mon', 'tue', 'wed', 'the', 'fri', 'sat', 'sun'];
+
+// for (const day of days) {
+//   const open = restaurant.openingHours[day]?.open ?? 'closed';
+//   console.log(`On ${day},we open at ${open}`);
+// }
+
+// // Methods
+// console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
+// console.log(restaurant.orderRisotto?.(0, 1) ?? 'Method does not exist');
+
+// // Arrays
+// const users = [{ name: 'Jonas', email: 'hello@jonas.io' }];
+// console.log(users[0]?.name ?? 'User aray empty');
+
 // const game = {
 //   team1: 'Bayern Munich',
 //   team2: 'Borrussia Dortmund',

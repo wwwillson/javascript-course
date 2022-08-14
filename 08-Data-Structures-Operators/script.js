@@ -131,22 +131,43 @@ const game = {
   },
 };
 
+// Sets
+const ordersSet = new Set(['pasta', 'pizza', 'pizza', 'pasta']);
+console.log(ordersSet);
+console.log(new Set('Jonas'));
+console.log(ordersSet.has('pizza'));
+console.log(ordersSet.has('Bread'));
+ordersSet.add('Garlic Bread');
+ordersSet.delete('pasta');
+// ordersSet.clear();
+console.log(ordersSet);
+
+for (const order of ordersSet) console.log(order);
+
+// Example
+const staff = ['Waiter', 'Chef', 'Waiter', 'Manager'];
+const staffUnique = [...new Set(staff)];
+console.log(staffUnique);
+console.log(new Set(['Waiter', 'Chef', 'Waiter', 'Manager']).size);
+console.log(new Set('jonasschmedtmann').size);
+
 // Challenge2
-//1.
-for (const [i, player] of game.scored.entries()) {
-  console.log(`Goal ${i + 1} : ${player}`);
-}
-//2.
-const odds = Object.values(game.odds);
-let average = 0;
-for (const odd of odds) average += odd;
-average /= odds.length;
-console.log(average);
-//3.
-for (const [team, odd] of Object.entries(game.odds)) {
-  const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
-  console.log(`Odd of ${teamStr} ${odd}`);
-}
+// //1.
+// for (const [i, player] of game.scored.entries()) {
+//   console.log(`Goal ${i + 1} : ${player}`);
+// }
+// //2.
+// const odds = Object.values(game.odds);
+// let average = 0;
+// for (const odd of odds) average += odd;
+// average /= odds.length;
+// console.log(average);
+// //3.
+// for (const [team, odd] of Object.entries(game.odds)) {
+//   const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
+//   console.log(`Odd of ${teamStr} ${odd}`);
+// }
+
 //Challenge1
 // //1.
 // const [players1, players2] = game.players;

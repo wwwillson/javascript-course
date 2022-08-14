@@ -131,27 +131,77 @@ const game = {
   },
 };
 
-// Sets
-const ordersSet = new Set(['pasta', 'pizza', 'pizza', 'pasta']);
-console.log(ordersSet);
-console.log(new Set('Jonas'));
-console.log(ordersSet.has('pizza'));
-console.log(ordersSet.has('Bread'));
-ordersSet.add('Garlic Bread');
-ordersSet.delete('pasta');
-// ordersSet.clear();
-console.log(ordersSet);
+// Maps
+const rest = new Map();
+rest.set('name', 'Classico Italiano');
+rest.set(1, 'Firenze, Italy');
+console.log(rest.set(2, 'Lisbon, Portugal'));
 
-for (const order of ordersSet) console.log(order);
+rest
+  .set('categories', ['Italian', 'pizzeria'])
+  .set('open', 11)
+  .set('close', 23)
+  .set(true, 'We are open :D')
+  .set(false, 'We are closed :(');
 
-// Example
-const staff = ['Waiter', 'Chef', 'Waiter', 'Manager'];
-const staffUnique = [...new Set(staff)];
-console.log(staffUnique);
-console.log(new Set(['Waiter', 'Chef', 'Waiter', 'Manager']).size);
-console.log(new Set('jonasschmedtmann').size);
+console.log(rest.get('name'));
+console.log(rest.get(true));
 
-// Challenge2
+const time = 8;
+console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
+
+console.log(rest.has('categories'));
+rest.delete(2);
+// rest.clear();
+
+const arr = [1, 2];
+rest.set(arr, 'Test');
+console.log(rest);
+console.log(rest.size);
+console.log(rest.get(arr));
+
+const question = new Map([
+  ['question', 'What is the best programing language in the world'],
+  [1, 'C'],
+  [2, 'Java'],
+  [3, 'JavaScript'],
+]);
+console.log(question);
+
+console.log(Object.entries(openingHours));
+const hoursMap = new Map(Object.entries(openingHours));
+console.log(hoursMap);
+
+console.log(question.get('question'));
+for (const [key, value] of question) {
+  if (typeof key === 'number') console.log(`Answer ${key}: ${value}`);
+}
+
+console.log([...question]);
+console.log([...question.keys()]);
+console.log([...question.values()]);
+
+// // Sets
+// const ordersSet = new Set(['pasta', 'pizza', 'pizza', 'pasta']);
+// console.log(ordersSet);
+// console.log(new Set('Jonas'));
+// console.log(ordersSet.has('pizza'));
+// console.log(ordersSet.has('Bread'));
+// ordersSet.add('Garlic Bread');
+// ordersSet.delete('pasta');
+// // ordersSet.clear();
+// console.log(ordersSet);
+
+// for (const order of ordersSet) console.log(order);
+
+// // Example
+// const staff = ['Waiter', 'Chef', 'Waiter', 'Manager'];
+// const staffUnique = [...new Set(staff)];
+// console.log(staffUnique);
+// console.log(new Set(['Waiter', 'Chef', 'Waiter', 'Manager']).size);
+// console.log(new Set('jonasschmedtmann').size);
+
+// // Challenge2
 // //1.
 // for (const [i, player] of game.scored.entries()) {
 //   console.log(`Goal ${i + 1} : ${player}`);
@@ -168,7 +218,7 @@ console.log(new Set('jonasschmedtmann').size);
 //   console.log(`Odd of ${teamStr} ${odd}`);
 // }
 
-//Challenge1
+// //Challenge1
 // //1.
 // const [players1, players2] = game.players;
 // console.log(players1, players2);

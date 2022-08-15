@@ -90,128 +90,145 @@ const openingHours = {
 // const users = [{ name: 'Jonas', email: 'hello@jonas.io' }];
 // console.log(users[0]?.name ?? 'User aray empty');
 
-const game = {
-  team1: 'Bayern Munich',
-  team2: 'Borrussia Dortmund',
-  players: [
-    [
-      'Neuer',
-      'Pavard',
-      'Martinez',
-      'Alaba',
-      'Davies',
-      'Kimmich',
-      'Goretzka',
-      'Coman',
-      'Muller',
-      'Gnarby',
-      'Lewandowski',
-    ],
-    [
-      'Burki',
-      'Schulz',
-      'Hummels',
-      'Akanji',
-      'Hakimi',
-      'Weigl',
-      'Witsel',
-      'Hazard',
-      'Brandt',
-      'Sancho',
-      'Gotze',
-    ],
-  ],
-  score: '4:0',
-  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
-  date: 'Nov 9th, 2037',
-  odds: {
-    team1: 1.33,
-    x: 3.25,
-    team2: 6.5,
-  },
-};
+// const game = {
+//   team1: 'Bayern Munich',
+//   team2: 'Borrussia Dortmund',
+//   players: [
+//     [
+//       'Neuer',
+//       'Pavard',
+//       'Martinez',
+//       'Alaba',
+//       'Davies',
+//       'Kimmich',
+//       'Goretzka',
+//       'Coman',
+//       'Muller',
+//       'Gnarby',
+//       'Lewandowski',
+//     ],
+//     [
+//       'Burki',
+//       'Schulz',
+//       'Hummels',
+//       'Akanji',
+//       'Hakimi',
+//       'Weigl',
+//       'Witsel',
+//       'Hazard',
+//       'Brandt',
+//       'Sancho',
+//       'Gotze',
+//     ],
+//   ],
+//   score: '4:0',
+//   scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+//   date: 'Nov 9th, 2037',
+//   odds: {
+//     team1: 1.33,
+//     x: 3.25,
+//     team2: 6.5,
+//   },
+// };
 
-// Working With Strings
-const airline = 'TAP Air Portugal';
-const plane = 'A320';
+// //Challenge 4
+document.body.append(document.createElement('textarea'));
+document.body.append(document.createElement('button'));
 
-console.log(plane[0]);
-console.log(plane[1]);
-console.log(plane[2]);
-console.log('B737'[0]);
-
-console.log(airline.length);
-console.log('B737'.length);
-
-console.log(airline.indexOf('r'));
-console.log(airline.lastIndexOf('r'));
-console.log(airline.indexOf('portugal'));
-
-console.log(airline.slice(4));
-console.log(airline.slice(4, 7));
-
-console.log(airline.slice(0, airline.indexOf(' ')));
-console.log(airline.slice(airline.lastIndexOf(' ') + 1));
-
-console.log(airline.slice(-2));
-console.log(airline.slice(1, -2));
-
-console.log(airline.toLowerCase());
-console.log(airline.toUpperCase());
-
-const passenger = 'jOnASs'; // Jonas
-const passengerLower = passenger.toLowerCase();
-const passengerCorrect =
-  passengerLower[0].toUpperCase() + passengerLower.slice(1);
-console.log(passengerCorrect);
-
-const email = 'hello@jonas.io';
-const loginEmail = '  Hello@Jonas.Io \n';
-
-// const lowerEmail = loginEmail.toLowerCase();
-// const trimmedEmail = lowerEmail.trim();
-const normalizedEmail = loginEmail.toLowerCase().trim();
-console.log(normalizedEmail);
-
-const priceGB = '288,97@';
-const priceUS = priceGB.replace('@', '$').replace(',', '.');
-console.log(priceUS);
-
-const planes = 'Airbus A320neo';
-console.log(plane.includes('A320'));
-console.log(plane.includes('Boeing'));
-console.log(plane.startsWith('A3'));
-if (planes.startsWith('Air') && planes.endsWith('neo'))
-  console.log(`Part of the NEW ARirbus family`);
-
-console.log('a+very+sinc+sting'.split('+'));
-const [firstName, lastName] = 'Jonas Schmedtmann'.split(' ');
-
-const newName = ['Mr.', firstName, lastName.toUpperCase()].join('--');
-console.log(newName);
-
-function capitalizeName(name) {
-  const names = name.split(' ');
-  const namesUpper = [];
-  for (const n of names) {
-    // namesUpper.push(n[0].toUpperCase() + n.slice(1));
-    namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
+document.querySelector('button').addEventListener('click', function () {
+  const textValue = document.querySelector('textarea').value;
+  const rows = textValue.split('\n');
+  for (const [i, row] of rows.entries()) {
+    const [first, second] = row.toLowerCase().trim().split('_');
+    const output = `${first}${second.replace(
+      second[0],
+      second[0].toUpperCase()
+    )}`;
+    console.log(`${output.padEnd(20)}${'✅'.repeat(i + 1)}`);
   }
-  console.log(namesUpper.join(' '));
-}
-capitalizeName('jessica ann smith davis');
+});
 
-const message = 'Go to fate 23!';
-console.log(message.padStart(20, '+').padEnd(30, '+'));
-console.log('Jonas'.padStart(20, '+').padEnd(30, '+'));
+// // Working With Strings
+// const airline = 'TAP Air Portugal';
+// const plane = 'A320';
 
-function maskCreditCard(number) {
-  number = String(number);
-  console.log(number.slice(-4).padStart(number.length, '*'));
-}
-maskCreditCard(41654761684);
+// console.log(plane[0]);
+// console.log(plane[1]);
+// console.log(plane[2]);
+// console.log('B737'[0]);
 
-console.log(message.repeat(5));
+// console.log(airline.length);
+// console.log('B737'.length);
+
+// console.log(airline.indexOf('r'));
+// console.log(airline.lastIndexOf('r'));
+// console.log(airline.indexOf('portugal'));
+
+// console.log(airline.slice(4));
+// console.log(airline.slice(4, 7));
+
+// console.log(airline.slice(0, airline.indexOf(' ')));
+// console.log(airline.slice(airline.lastIndexOf(' ') + 1));
+
+// console.log(airline.slice(-2));
+// console.log(airline.slice(1, -2));
+
+// console.log(airline.toLowerCase());
+// console.log(airline.toUpperCase());
+
+// const passenger = 'jOnASs'; // Jonas
+// const passengerLower = passenger.toLowerCase();
+// const passengerCorrect =
+//   passengerLower[0].toUpperCase() + passengerLower.slice(1);
+// console.log(passengerCorrect);
+
+// const email = 'hello@jonas.io';
+// const loginEmail = '  Hello@Jonas.Io \n';
+
+// // const lowerEmail = loginEmail.toLowerCase();
+// // const trimmedEmail = lowerEmail.trim();
+// const normalizedEmail = loginEmail.toLowerCase().trim();
+// console.log(normalizedEmail);
+
+// const priceGB = '288,97@';
+// const priceUS = priceGB.replace('@', '$').replace(',', '.');
+// console.log(priceUS);
+
+// const planes = 'Airbus A320neo';
+// console.log(plane.includes('A320'));
+// console.log(plane.includes('Boeing'));
+// console.log(plane.startsWith('A3'));
+// if (planes.startsWith('Air') && planes.endsWith('neo'))
+//   console.log(`Part of the NEW ARirbus family`);
+
+// console.log('a+very+sinc+sting'.split('+'));
+// const [firstName, lastName] = 'Jonas Schmedtmann'.split(' ');
+
+// const newName = ['Mr.', firstName, lastName.toUpperCase()].join('--');
+// console.log(newName);
+
+// function capitalizeName(name) {
+//   const names = name.split(' ');
+//   const namesUpper = [];
+//   for (const n of names) {
+//     // namesUpper.push(n[0].toUpperCase() + n.slice(1));
+//     namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
+//   }
+//   console.log(namesUpper.join(' '));
+// }
+// capitalizeName('jessica ann smith davis');
+
+// const message = 'Go to fate 23!';
+// console.log(message.padStart(20, '+').padEnd(30, '+'));
+// console.log('Jonas'.padStart(20, '+').padEnd(30, '+'));
+
+// function maskCreditCard(number) {
+//   number = String(number);
+//   console.log(number.slice(-4).padStart(number.length, '*'));
+// }
+// maskCreditCard(41654761684);
+
+// console.log(message.repeat(5));
 
 // // Challenge3
 // const gameEvents = new Map([

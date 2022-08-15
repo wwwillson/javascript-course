@@ -131,55 +131,87 @@ const game = {
   },
 };
 
-// Maps
-const rest = new Map();
-rest.set('name', 'Classico Italiano');
-rest.set(1, 'Firenze, Italy');
-console.log(rest.set(2, 'Lisbon, Portugal'));
-
-rest
-  .set('categories', ['Italian', 'pizzeria'])
-  .set('open', 11)
-  .set('close', 23)
-  .set(true, 'We are open :D')
-  .set(false, 'We are closed :(');
-
-console.log(rest.get('name'));
-console.log(rest.get(true));
-
-const time = 8;
-console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
-
-console.log(rest.has('categories'));
-rest.delete(2);
-// rest.clear();
-
-const arr = [1, 2];
-rest.set(arr, 'Test');
-console.log(rest);
-console.log(rest.size);
-console.log(rest.get(arr));
-
-const question = new Map([
-  ['question', 'What is the best programing language in the world'],
-  [1, 'C'],
-  [2, 'Java'],
-  [3, 'JavaScript'],
+// Challenge3
+const gameEvents = new Map([
+  [17, '⚽️ GOAL'],
+  [36, '🔁 Substitution'],
+  [47, '⚽️ GOAL'],
+  [61, '🔁 Substitution'],
+  [64, '🔶 Yellow card'],
+  [69, '🔴 Red card'],
+  [70, '🔁 Substitution'],
+  [72, '🔁 Substitution'],
+  [76, '⚽️ GOAL'],
+  [80, '⚽️ GOAL'],
+  [92, '🔶 Yellow card'],
 ]);
-console.log(question);
 
-console.log(Object.entries(openingHours));
-const hoursMap = new Map(Object.entries(openingHours));
-console.log(hoursMap);
+//1.
+const events = [...new Set(gameEvents.values())];
+console.log(events);
 
-console.log(question.get('question'));
-for (const [key, value] of question) {
-  if (typeof key === 'number') console.log(`Answer ${key}: ${value}`);
+//2.
+gameEvents.delete(64);
+
+//3.
+console.log(
+  `An event happened, on average, every ${90 / gameEvents.size} minutes`
+);
+
+//4.
+for (const [min, event] of gameEvents) {
+  const half = min <= 45 ? 'FIRST' : 'SECOND';
+  console.log(`[${half} HALF] ${min}: ${event}`);
 }
+// // Maps
+// const rest = new Map();
+// rest.set('name', 'Classico Italiano');
+// rest.set(1, 'Firenze, Italy');
+// console.log(rest.set(2, 'Lisbon, Portugal'));
 
-console.log([...question]);
-console.log([...question.keys()]);
-console.log([...question.values()]);
+// rest
+//   .set('categories', ['Italian', 'pizzeria'])
+//   .set('open', 11)
+//   .set('close', 23)
+//   .set(true, 'We are open :D')
+//   .set(false, 'We are closed :(');
+
+// console.log(rest.get('name'));
+// console.log(rest.get(true));
+
+// const time = 8;
+// console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
+
+// console.log(rest.has('categories'));
+// rest.delete(2);
+// // rest.clear();
+
+// const arr = [1, 2];
+// rest.set(arr, 'Test');
+// console.log(rest);
+// console.log(rest.size);
+// console.log(rest.get(arr));
+
+// const question = new Map([
+//   ['question', 'What is the best programing language in the world'],
+//   [1, 'C'],
+//   [2, 'Java'],
+//   [3, 'JavaScript'],
+// ]);
+// console.log(question);
+
+// console.log(Object.entries(openingHours));
+// const hoursMap = new Map(Object.entries(openingHours));
+// console.log(hoursMap);
+
+// console.log(question.get('question'));
+// for (const [key, value] of question) {
+//   if (typeof key === 'number') console.log(`Answer ${key}: ${value}`);
+// }
+
+// console.log([...question]);
+// console.log([...question.keys()]);
+// console.log([...question.values()]);
 
 // // Sets
 // const ordersSet = new Set(['pasta', 'pizza', 'pizza', 'pasta']);

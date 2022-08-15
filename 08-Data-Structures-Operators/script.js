@@ -131,38 +131,121 @@ const game = {
   },
 };
 
-// Challenge3
-const gameEvents = new Map([
-  [17, '⚽️ GOAL'],
-  [36, '🔁 Substitution'],
-  [47, '⚽️ GOAL'],
-  [61, '🔁 Substitution'],
-  [64, '🔶 Yellow card'],
-  [69, '🔴 Red card'],
-  [70, '🔁 Substitution'],
-  [72, '🔁 Substitution'],
-  [76, '⚽️ GOAL'],
-  [80, '⚽️ GOAL'],
-  [92, '🔶 Yellow card'],
-]);
+// Working With Strings
+const airline = 'TAP Air Portugal';
+const plane = 'A320';
 
-//1.
-const events = [...new Set(gameEvents.values())];
-console.log(events);
+console.log(plane[0]);
+console.log(plane[1]);
+console.log(plane[2]);
+console.log('B737'[0]);
 
-//2.
-gameEvents.delete(64);
+console.log(airline.length);
+console.log('B737'.length);
 
-//3.
-console.log(
-  `An event happened, on average, every ${90 / gameEvents.size} minutes`
-);
+console.log(airline.indexOf('r'));
+console.log(airline.lastIndexOf('r'));
+console.log(airline.indexOf('portugal'));
 
-//4.
-for (const [min, event] of gameEvents) {
-  const half = min <= 45 ? 'FIRST' : 'SECOND';
-  console.log(`[${half} HALF] ${min}: ${event}`);
+console.log(airline.slice(4));
+console.log(airline.slice(4, 7));
+
+console.log(airline.slice(0, airline.indexOf(' ')));
+console.log(airline.slice(airline.lastIndexOf(' ') + 1));
+
+console.log(airline.slice(-2));
+console.log(airline.slice(1, -2));
+
+console.log(airline.toLowerCase());
+console.log(airline.toUpperCase());
+
+const passenger = 'jOnASs'; // Jonas
+const passengerLower = passenger.toLowerCase();
+const passengerCorrect =
+  passengerLower[0].toUpperCase() + passengerLower.slice(1);
+console.log(passengerCorrect);
+
+const email = 'hello@jonas.io';
+const loginEmail = '  Hello@Jonas.Io \n';
+
+// const lowerEmail = loginEmail.toLowerCase();
+// const trimmedEmail = lowerEmail.trim();
+const normalizedEmail = loginEmail.toLowerCase().trim();
+console.log(normalizedEmail);
+
+const priceGB = '288,97@';
+const priceUS = priceGB.replace('@', '$').replace(',', '.');
+console.log(priceUS);
+
+const planes = 'Airbus A320neo';
+console.log(plane.includes('A320'));
+console.log(plane.includes('Boeing'));
+console.log(plane.startsWith('A3'));
+if (planes.startsWith('Air') && planes.endsWith('neo'))
+  console.log(`Part of the NEW ARirbus family`);
+
+console.log('a+very+sinc+sting'.split('+'));
+const [firstName, lastName] = 'Jonas Schmedtmann'.split(' ');
+
+const newName = ['Mr.', firstName, lastName.toUpperCase()].join('--');
+console.log(newName);
+
+function capitalizeName(name) {
+  const names = name.split(' ');
+  const namesUpper = [];
+  for (const n of names) {
+    // namesUpper.push(n[0].toUpperCase() + n.slice(1));
+    namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
+  }
+  console.log(namesUpper.join(' '));
 }
+capitalizeName('jessica ann smith davis');
+
+const message = 'Go to fate 23!';
+console.log(message.padStart(20, '+').padEnd(30, '+'));
+console.log('Jonas'.padStart(20, '+').padEnd(30, '+'));
+
+function maskCreditCard(number) {
+  number = String(number);
+  console.log(number.slice(-4).padStart(number.length, '*'));
+}
+maskCreditCard(41654761684);
+
+console.log(message.repeat(5));
+
+// // Challenge3
+// const gameEvents = new Map([
+//   [17, '⚽️ GOAL'],
+//   [36, '🔁 Substitution'],
+//   [47, '⚽️ GOAL'],
+//   [61, '🔁 Substitution'],
+//   [64, '🔶 Yellow card'],
+//   [69, '🔴 Red card'],
+//   [70, '🔁 Substitution'],
+//   [72, '🔁 Substitution'],
+//   [76, '⚽️ GOAL'],
+//   [80, '⚽️ GOAL'],
+//   [92, '🔶 Yellow card'],
+// ]);
+
+// //1.
+// const events = [...new Set(gameEvents.values())];
+// console.log(events);
+
+// //2.
+// gameEvents.delete(64);
+
+// //3.
+// console.log(
+//   `An event happened, on average, every ${90 / gameEvents.size} minutes`
+// );
+
+// //4.
+// for (const [min, event] of gameEvents) {
+//   const half = min <= 45 ? 'FIRST' : 'SECOND';
+//   console.log(`[${half} HALF] ${min}: ${event}`);
+// }
+
 // // Maps
 // const rest = new Map();
 // rest.set('name', 'Classico Italiano');

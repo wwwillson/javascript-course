@@ -37,22 +37,39 @@
 // console.log(flight);
 // console.log(jonas);
 
-// Callback Functions
-const upperFirstWord = function (str) {
-  const [first, ...others] = str.split(' ');
-  return [first.toUpperCase(), ...others].join(' ');
+// // Callback Functions
+// const upperFirstWord = function (str) {
+//   const [first, ...others] = str.split(' ');
+//   return [first.toUpperCase(), ...others].join(' ');
+// };
+
+// // Higher-order function
+// const transformer = function (str, fn) {
+//   console.log(fn(str));
+//   console.log(fn.name);
+// };
+
+// transformer('JavaScript is the best!', upperFirstWord);
+
+// // JS use callbacks all the time
+// const high5 = function () {
+//   console.log('╰(*°▽°*)╯');
+// };
+// document.body.addEventListener('click', high5);
+
+// Returning Functions
+const greet = function (greeting) {
+  return function (name) {
+    console.log(`${greeting} ${name}`);
+  };
 };
 
-// Higher-order function
-const transformer = function (str, fn) {
-  console.log(fn(str));
-  console.log(fn.name);
-};
+const greeterHey = greet('Hey');
+greeterHey('Jonas');
+greeterHey('Steven');
 
-transformer('JavaScript is the best!', upperFirstWord);
+greet('Hello', 'Jonas');
 
-// JS use callbacks all the time
-const high5 = function () {
-  console.log('╰(*°▽°*)╯');
-};
-document.body.addEventListener('click', high5);
+const greetArr = (greeting) => (name) => console.log(`${greeting} ${name}`);
+
+greetArr('Hi')('Jonaaaaaaaaas');

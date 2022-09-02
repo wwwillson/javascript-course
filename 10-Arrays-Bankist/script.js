@@ -440,7 +440,6 @@ const overalBalance2 = accounts
   .flatMap((acc) => acc.movements)
   .reduce((acc, mov) => acc + mov, 0);
 console.log(overalBalance2);
-*/
 
 // Sorting Arrays
 const owners = ['Jonas', 'Zach', 'Adam', 'Martha'];
@@ -456,3 +455,28 @@ console.log(movements);
 // });
 movements.sort((a, b) => a - b);
 console.log(movements);
+*/
+
+// Emprty arrays + fill method
+const arr = [1, 2, 3, 4, 5, 6, 7];
+arr.fill(1);
+console.log(arr);
+
+arr.fill(2, 3, 5);
+console.log(arr);
+
+const y = Array.from({ length: 7 }, () => 3);
+console.log(y);
+
+const z = Array.from({ length: 7 }, (_, i) => i + 1);
+console.log(z);
+
+labelBalance.addEventListener('click', function () {
+  const movementsUI = Array.from(
+    document.querySelectorAll('.movements__value'),
+    (el) => Number(el.textContent.replace('€', ''))
+  );
+  console.log(movementsUI);
+
+  const movementsUI2 = [...document.querySelectorAll('.movements__value')];
+});
